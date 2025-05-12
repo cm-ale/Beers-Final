@@ -1,12 +1,36 @@
-# React + Vite
+# CerveStore 🍺
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación tipo SPA desarrollada en React para gestionar un catálogo de cervezas, con autenticación de usuarios y roles.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Funcionalidades
 
-## Expanding the ESLint configuration
+- Login de usuarios (admin y user)
+- Gestión de cervezas (listado, alta, baja)
+- Diferenciación por rol:
+  - Admin: puede agregar y eliminar cervezas
+  - User: solo visualiza la lista
+- Estilos con React Bootstrap
+- Protección de rutas
+- Context API y custom hook para sesión
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧪 Usuarios de prueba
+
+### 👑 Admin
+- **Email:** `admin@test.com`
+- **Contraseña:** `123456`
+
+### 👤 Usuario
+- **Email:** `user@test.com`
+- **Contraseña:** `123456`
+
+---
+
+## 🚀 Instalación
+
+```bash
+npm install
+npm run dev
