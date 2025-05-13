@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Container, Form, Button, Table } from 'react-bootstrap';
-import beersData from '../data/beers.json';
 import { useAuth } from '../context/AuthContext';
+import api from '../api/axios'; 
 
 export default function BeerList() {
   const { user } = useAuth();
-  const [beers, setBeers] = useState(beersData);
+  const [beers, setBeers] = useState([]);
 
   const {
     register,
@@ -15,21 +15,38 @@ export default function BeerList() {
     formState: { errors }
   } = useForm();
 
-  const handleAdd = (data) => {
-    const id = Math.max(...beers.map(b => b.id)) + 1;
-    const newBeer = { id, ...data };
-    setBeers([...beers, newBeer]);
-    reset(); // limpia el formulario
+  // Cargar cervezas desde json-server
+  useEffect(() => {
+    api.get('/beers')
+      .then(res => setBeers(res.data))
+      .catch(err => console.error('Error al cargar cervezas:', err));
+  }, []);
+
+  // Alta
+  const handleAdd = async (data) => {
+    const newBeer = { ...data, price: parseFloat(data.price) };
+    try {
+      const res = await api.post('/beers', newBeer);
+      setBeers([...beers, res.data]);
+      reset();
+    } catch (err) {
+      console.error('Error al agregar cerveza:', err);
+    }
   };
 
-  const handleDelete = (id) => {
-    setBeers(beers.filter(b => b.id !== id));
+  // Baja
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/beers/${id}`);
+      setBeers(beers.filter(b => b.id !== id));
+    } catch (err) {
+      console.error('Error al eliminar cerveza:', err);
+    }
   };
 
   return (
     <Container className="mt-4">
-     <h2>Gestion de Cervezas</h2>
-
+      <h2>Gestión de Cervezas</h2>
 
       {user.role === 'admin' && (
         <Form onSubmit={handleSubmit(handleAdd)} className="mb-4">

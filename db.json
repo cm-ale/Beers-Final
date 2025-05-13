@@ -25,6 +25,49 @@
       "name": "Amber",
       "type": "Roja",
       "price": 450
+    },
+    {
+      "id": 3,
+      "name": "American",
+      "type": "IPA",
+      "price": 450
+    },
+    {
+      "id": 4,
+      "name": "Irish",
+      "type": "Red",
+      "price": 850
+    },
+    {
+      "id": 5,
+      "name": "Argenta",
+      "type": "IPA",
+      "price": 700
+    },
+    {
+      "id": 6,
+      "name": "Scotish",
+      "type": "Temple",
+      "price": 940
+    },
+      {
+      "id": 7,
+      "name": "Scotish",
+      "type": "Red",
+      "price": 940
+    },
+      {
+      "id": 8,
+      "name": "Scotish",
+      "type": "Artesanal",
+      "price": 940
+    },
+      {
+      "id": 9,
+      "name": "Irish",
+      "type": "Artesanal",
+      "price": 940
     }
+    
   ]
 }
