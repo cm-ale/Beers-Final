@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "beers": [
+    {
+      "id": 1,
+      "name": "IPA",
+      "type": "Lupulada",
+      "price": 500
+    },
+    {
+      "id": 2,
+      "name": "Amber",
+      "type": "Roja",
+      "price": 450
+    }
+  ]
+}

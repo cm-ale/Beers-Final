@@ -1,15 +1,45 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
 import Login from './pages/Login';
-import { useAuth } from './hooks/useAuth';
+import PrivateRoute from './routes/PrivateRoute';
+import Home from './pages/Home';
+import BeerList from './components/BeerList';
+import AdminPage from './pages/AdminPage';
+import NavBarApp from './components/Navbar';
+import { Routes, Route } from 'react-router-dom';
 
 export default function App() {
-  const { user } = useAuth();
-
   return (
-    <Routes>
-      <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      <NavBarApp /> {/* Navbar siempre visible */}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/beers"
+          element={
+            <PrivateRoute>
+              <BeerList />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute role="admin">
+              <AdminPage />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
