@@ -2,7 +2,7 @@ import axios from '../api/axios';
 
 export const login = async (username, password) => {
   try {
-    const res = await axios.get('/users'); // lee desde data/users.json (simulado con json-server)
+    const res = await axios.get('/users'); // lee desde db.json, con la clave users (simulado con json-server)
     const user = res.data.find(
       u => u.username === username && u.password === password
     );

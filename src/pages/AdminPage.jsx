@@ -5,7 +5,7 @@ export default function AdminPage() {
     <Container className="mt-4">
       <h2>Panel de administración</h2>
       <p>Bienvenido, administrador.</p> 
-      <p>En esta seccion podes agregar mas funcionalidades de este rol</p>
+      <p>Acceso exclusivo para administradores.</p>
     </Container>
   );
 }
