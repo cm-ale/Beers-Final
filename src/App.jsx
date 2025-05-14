@@ -1,7 +1,7 @@
 import Login from './pages/Login';
 import PrivateRoute from './routes/PrivateRoute';
 import Home from './pages/Home';
-import BeerList from './components/BeerList';
+import BeerList from './pages/BeerList';
 import AdminPage from './pages/AdminPage';
 import NavBarApp from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';

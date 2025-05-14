@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "admin123",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "user",
       "password": "user123",
       "role": "user"
@@ -15,59 +15,58 @@
   ],
   "beers": [
     {
-      "id": 1,
+      "id": "1",
       "name": "IPA",
       "type": "Lupulada",
       "price": 500
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Amber",
       "type": "Roja",
       "price": 450
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "American",
       "type": "IPA",
       "price": 450
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Irish",
       "type": "Red",
       "price": 850
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Argenta",
       "type": "IPA",
       "price": 700
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Scotish",
       "type": "Temple",
       "price": 940
     },
-      {
-      "id": 7,
+    {
+      "id": "7",
       "name": "Scotish",
       "type": "Red",
       "price": 940
     },
-      {
-      "id": 8,
+    {
+      "id": "8",
       "name": "Scotish",
       "type": "Artesanal",
       "price": 940
     },
-      {
-      "id": 9,
+    {
+      "id": "9",
       "name": "Irish",
       "type": "Artesanal",
       "price": 940
     }
-    
   ]
 }
