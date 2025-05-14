@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Container, Form, Button, Table } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
+import { errorToast, successToast } from '../ui/toast/Notification';
 import api from '../api/axios'; 
 
 export default function BeerList() {
@@ -19,7 +20,7 @@ export default function BeerList() {
   useEffect(() => {
     api.get('/beers')
       .then(res => setBeers(res.data))
-      .catch(err => console.error('Error al cargar cervezas:', err));
+      .catch(() => errorToast('Error al cargar cervezas'));
   }, []);
 
   // Alta
@@ -29,8 +30,9 @@ export default function BeerList() {
       const res = await api.post('/beers', newBeer);
       setBeers([...beers, res.data]);
       reset();
+      successToast('Cerveza agregada correctamente');
     } catch (err) {
-      console.error('Error al agregar cerveza:', err);
+      errorToast('Error al agregar cerveza');
     }
   };
 
@@ -39,8 +41,9 @@ export default function BeerList() {
     try {
       await api.delete(`/beers/${id}`);
       setBeers(beers.filter(b => b.id !== id));
+      successToast('Cerveza eliminada');
     } catch (err) {
-      console.error('Error al eliminar cerveza:', err);
+      errorToast('Error al eliminar cerveza');
     }
   };
 

@@ -2,14 +2,13 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { login as loginService } from '../services/authService';
-import { useState } from 'react';
-import { Form, Button, Alert, Container } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
+import { errorToast } from '../ui/toast/Notification';
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { loginUser } = useAuth();
   const navigate = useNavigate();
-  const [loginError, setLoginError] = useState('');
 
   const onSubmit = async ({ username, password }) => {
     try {
@@ -17,14 +16,13 @@ export default function Login() {
       loginUser(user, token);
       navigate('/');
     } catch (err) {
-      setLoginError('Usuario o contraseña incorrectos');
+      errorToast('Usuario o contraseña incorrectos');
     }
   };
 
   return (
     <Container className="mt-5" style={{ maxWidth: '400px' }}>
       <h2>Iniciar Sesión</h2>
-      {loginError && <Alert variant="danger">{loginError}</Alert>}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId="username">
           <Form.Label>Usuario</Form.Label>

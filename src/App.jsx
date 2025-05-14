@@ -5,6 +5,7 @@ import BeerList from './pages/BeerList';
 import AdminPage from './pages/AdminPage';
 import NavBarApp from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
+import { NotificationContainer } from './ui/toast/Notification';
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
         />
 
         <Route
-          path="/beers"
+          path="/beeremprs"
           element={
             <PrivateRoute>
               <BeerList />
@@ -40,6 +41,7 @@ export default function App() {
           }
         />
       </Routes>
+        <NotificationContainer />
     </>
   );
 }

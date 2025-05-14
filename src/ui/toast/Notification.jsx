@@ -1,27 +1,23 @@
-import { Bounce, toast } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-const defaultNotificationConfig = {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    transition: Bounce,
-}
+const defaultConfig = {
+  position: "top-right",
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  theme: "light",
+  transition: Bounce,
+};
 
 export const errorToast = (message, config) => {
-    return toast.error(message, {
-        ...defaultNotificationConfig,
-        ...config
-    })
-}
+  toast.error(message, { ...defaultConfig, ...config });
+};
 
 export const successToast = (message, config) => {
-    return toast.success(message, {
-        ...defaultNotificationConfig,
-        ...config
-    })
-}
+  toast.success(message, { ...defaultConfig, ...config });
+};
+
+export const NotificationContainer = () => <ToastContainer />;
