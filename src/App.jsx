@@ -24,7 +24,7 @@ export default function App() {
         />
 
         <Route
-          path="/beeremprs"
+          path="/beers"
           element={
             <PrivateRoute>
               <BeerList />
